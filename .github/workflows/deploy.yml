@@ -1,0 +1,24 @@
+name: Deploy
+
+# On every push to main, the platform's shared workflow scans the image, pushes
+# it to ghcr.io/kushan94/idp-sample-service, signs it, and commits the new tag
+# to deploy/web.yaml, which Argo CD deploys. The commit it makes touches only
+# deploy/, so it doesn't start another run.
+
+on:
+  push:
+    branches: [main]
+    paths-ignore: [deploy/**]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    permissions:
+      contents: write
+      packages: write
+      id-token: write
+    uses: kushan94/eks-internal-developer-platform/.github/workflows/app-deploy.yml@main
