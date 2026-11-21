@@ -5,7 +5,7 @@ metadata:
 spec:
   runtime: kubernetes
   # The Deploy workflow replaces this with the image it builds.
-  image: nginxinc/nginx-unprivileged:1.29-alpine
+  image: ghcr.io/kushan94/idp-sample-service:5cae88c279a3bdcc0894d74079099264cad2da71
   port: 8080
   replicas: 2
   healthCheck:
