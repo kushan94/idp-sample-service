@@ -4,6 +4,9 @@ metadata:
   name: sample
 spec:
   runtime: kubernetes
+  # The Deploy workflow replaces this with the image it builds.
   image: nginxinc/nginx-unprivileged:1.29-alpine
   port: 8080
   replicas: 2
+  healthCheck:
+    path: /healthz
