@@ -5,7 +5,7 @@ metadata:
 spec:
   runtime: kubernetes
   # The Deploy workflow replaces this with the image it builds.
-  image: idp-apps/idp-sample-service:e5d424ceace2f06012e7ae8366f5dce416b2804f
+  image: idp-apps/idp-sample-service:e0300eeda63f1534c0321dde7db2c856d86d9774
   port: 8080
   replicas: 2
   healthCheck:
